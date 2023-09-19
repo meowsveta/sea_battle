@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class Field { //pole
     Scanner scanner = new Scanner(System.in);
     int countCell; // кол-во ячеек. при попадании это кол-во уменьшать на 1 //если останется 0, то игрок выиграл
-    int[][] playingField; // = new int[10][10]; //игровое поле игрока
+    int[][] playingField;  //игровое поле игрока
     int[][] opponentsField; // поле соперника
     int countShipsPlayer; // кол - во кораблей
 
@@ -97,10 +97,10 @@ public class Field { //pole
     public boolean isCorrected(int[][] field, int x, int y, int deck, int position) {
         boolean ok = false;
         try {
-            if (position == 1 || (x + deck > field.length)) { //  по-вертикали
+            if (position == 1 && ((x + deck) > field.length)) { //  по-вертикали
                 return false;
             }
-            if (position == 2 || (y + deck > field.length)) { // по-горизонтали
+            if (position == 2 && ((y + deck) > field.length)) { // по-горизонтали
                 return false;
             }
             if (field[x + 1][y + 1] == 1 || field[x - 1][y - 1] == 1 || field[x - 1][y + 1] == 1 || field[x + 1][y - 1] == 1) { // по диагонали

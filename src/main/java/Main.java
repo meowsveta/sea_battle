@@ -32,14 +32,14 @@ public class Main {
         System.out.println("Игра началась.");
 
         while (field1.countCell != 0 && field2.countCell != 0) {
-            System.out.println("Поле игрока: " + namePlayer2 + ", 0 - неизвестно, 1 - корабль, 2 - мимо");
+            System.out.println("Поле игрока: " + namePlayer2 + ".  \n0 - неизвестно, 1 - корабль, 2 - мимо");
             field1.drawField(opponentsField1);
             field2.motion(playingField2, namePlayer1, opponentsField1);
             if (field2.countCell == 0) {
                 System.out.println("Поздравляем! Игрок  " + namePlayer1 + " выиграл(а)!");
                 break;
             }
-            System.out.println("Поле первого игрока: " + namePlayer1+ ", 0 - неизвестно, 1 - корабль, 2 - мимо");
+            System.out.println("Поле игрока: " + namePlayer1+ ". 0 - неизвестно, 1 - корабль, 2 - мимо");
             field2.drawField(opponentsField2);
             field1.motion(playingField1, namePlayer2, opponentsField2);
                 if (field1.countCell == 0) {

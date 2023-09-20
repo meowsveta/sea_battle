@@ -115,6 +115,12 @@ public class Field { //pole
             }
         }
         catch (ArrayIndexOutOfBoundsException ex){
+            if (x == 0 || field[x + 1][y + 1] == 1 ||  field[x + 1][y - 1] == 1 ){
+                ok = true;
+            }
+            if (y == 0 || field[x + 1][y + 1] == 1 ||  field[x - 1][y + 1] == 1 ){
+                ok = true;
+            }
             return ok;
         }
         return ok;

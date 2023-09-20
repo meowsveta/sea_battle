@@ -22,10 +22,11 @@ public class Main {
         System.out.println("Игрок 2, введите ваше имя: ");
         String namePlayer2 = scanner.next();
 
-        field1.drawNullField(); //отобразить пустое поле
 
         while (field1.countShipsPlayer < 4 && field2.countShipsPlayer < 4) {
+            field1.drawField(playingField1);
             field1.shipsOnField(namePlayer1); // расстановка кораблей 1 игрока
+            field2.drawField(playingField2);
             field2.shipsOnField(namePlayer2); // расстановка кораблей 2 игрока
         }
 

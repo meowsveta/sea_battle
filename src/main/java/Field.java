@@ -15,15 +15,6 @@ public class Field { //pole
         this.opponentsField = opponentsField;
     }
 
-    public void drawNullField() { // нарисовать пустое поле
-        for (int x = 0; x < playingField.length; x++) {
-            for (int y = 0; y < playingField.length; y++) {
-                playingField[x][y] = 0;
-                opponentsField[x][y] = 0;
-            }
-        }
-    }
-
     public void drawField(int[][] field) {// отображение на экране текущего поля
         System.out.println("   0  1  2  3  4  5  6  7  8  9 ");
         for (int x = 0; x < field.length; x++) {
@@ -115,10 +106,19 @@ public class Field { //pole
             }
         }
         catch (ArrayIndexOutOfBoundsException ex){
-            if (x == 0 || field[x + 1][y + 1] == 1 ||  field[x + 1][y - 1] == 1 ){
+            if (x == 0 && field[x + 1][y + 1] == 0 &&  field[x + 1][y - 1] == 0 ){
                 ok = true;
             }
-            if (y == 0 || field[x + 1][y + 1] == 1 ||  field[x - 1][y + 1] == 1 ){
+            if (y == 0 && field[x + 1][y + 1] == 0 &&  field[x - 1][y + 1] == 0 ){
+                ok = true;
+            }
+            if (x == 9 && !(y == 9) && field[x - 1][y - 1] == 0 && field[x - 1][y + 1] == 0 ) {
+                ok = true;
+            }
+            if (y == 9 && !(x == 9) && field[x - 1][y - 1] == 0 && field[x + 1][y - 1] == 0 ) {
+                ok = true;
+            }
+            if (x == 9 && y == 9 && field[x - 1][y - 1] == 0 ) {
                 ok = true;
             }
             return ok;
